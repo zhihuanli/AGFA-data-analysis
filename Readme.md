@@ -4,11 +4,11 @@
 ## Online代码分析流程
 
 1. GammaSphere, AGAFA, Xarray阵列独立记录各自的数据。
-  - 每个获取的具体Trigger方式未知。但从数据结构看，GammaSphere和XA的外部触发可能是由DSSD提供的。每个获取记录触发后8 $\mu$s 内的数据。 
+  - 每个获取的具体Trigger方式未知。但从数据结构看，GammaSphere和XA的外部触发可能是由DSSD提供的。每个获取记录触发后8 μs 内的数据。 
 
 2. GEBMerge：按照timestamp的先后顺序，将上述三种阵列数据存到同一个文件中。
   - 在当前数据中，这部分已经完成。
-3. GEBSort：将符合时间窗(8$\mu$s)内的不同阵列数据放在一个事件内。
+3. GEBSort：将符合时间窗(8μs)内的不同阵列数据放在一个事件内。
   - 对每种数据进行解码。
   - 进行数据分析，填充histogram等。
 
