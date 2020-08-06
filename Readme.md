@@ -3,11 +3,11 @@
 
 ## Online代码分析流程
 
-### 三个获取分别记录 GammaSphere, AGAFA, Xarray 阵列的数据，保存在各自的文件中。
+1. 三个获取分别记录 GammaSphere, AGAFA, Xarray 阵列的数据，保存在各自的文件中。
 
-### GEBMerge：按照timestamp的先后顺序，将上述三种阵列数据存到同一个文件中。
+2. GEBMerge：按照timestamp的先后顺序，将上述三种阵列数据存到同一个文件中。
  - 在当前数据中，这部分已经完成。
-### GEBSort：将符合时间窗(~$8 \mu s$)内的不同阵列数据放在一个事件内。
+3. GEBSort：将符合时间窗(~$8 \mu s$)内的不同阵列数据放在一个事件内。
  - 对每种数据进行解码。
  - 进行数据分析，填充histogram等。
 
