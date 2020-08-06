@@ -29,7 +29,7 @@
       - #define Pars_beta 0.0270
   - Tree画图举例
     - opt->Draw("dfma.e:dmfa.id>>(160,0,160,1000,0,100000)","dfma.flag==2","colz");//dssd正面的能量 vs.探测器编号
-    - opt->Draw("@dfma.size()","dfma.flag==2","colz");//dssd正面的多重性，@dfma.size() 对应于hit数据结构的nhit
+    - opt->Draw("@dfma.size()",","colz");//dfma的多重性，@dfma.size() 对应于hit数据结构的nhit
     
    
 ### 用户分析代码：在上述数据的基础上，进一步编写用户分析程序。
