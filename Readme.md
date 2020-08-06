@@ -26,7 +26,7 @@
   - 用法 ./gsort run_number
     - 在main.cpp中修改输入文件和输出文件路径
     - 在tree.h 中修改beta参数
-     - #define Pars_beta 0.0270
+      - #define Pars_beta 0.0270
    
 ### 用户分析代码：在上述数据的基础上，进一步编写用户分析程序。
    - 这一部分对应于GEBSort代码中的数据分析部分
