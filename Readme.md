@@ -20,7 +20,7 @@
  - 用法: ./simple_gebsort run_number
    - 需要在main.cpp中修改输入文件和输出文件路径。
   
-  ### (gsort)(https://github.com/zhihuanli/gsmfma372)：对探测器进行mapping和刻度。代码：吴鸿毅
+  ### [gsort](https://github.com/zhihuanli/gsmfma372)：对探测器进行mapping和刻度。代码：吴鸿毅
   - 进一步精简数据结构，只输出必要的参数
     - 探测器只保留 e,id,ts等参数
   - 用法 ./gsort run_number
