@@ -13,7 +13,7 @@
    - 进行数据分析，填充histogram等。
 
 ## 基于ROOT的offline代码
-
+ - ROOT的Tree的数据存储格式为vector<Detector>, Detector为描述探测器数据的结构体(struct)
 ### [simple_gebsort](https://github.com/zhihuanli/simple_gebsort)：将符合后的数据输出到ROOT文件。代码：吴鸿毅，李晶
  - 在GEBSort程序的基础上，精简了每个探测器的数据结构，将其输出到ROOT文件，供下一级程序分析。
    - 为了简化代码，这一级只输出未进行刻度的原始数据。
@@ -23,10 +23,14 @@
   ### [gsort](https://github.com/zhihuanli/gsmfma372)：对探测器进行mapping和刻度。代码：吴鸿毅
   - 进一步精简数据结构，只输出必要的参数
     - 探测器只保留 e,id,ts等参数
-  - 用法 ./gsort run_number
+  - 运行方法 ./gsort run_number
     - 在main.cpp中修改输入文件和输出文件路径
     - 在tree.h 中修改beta参数
       - #define Pars_beta 0.0270
+  - Tree画图举例
+    - opt->Draw("dfma.e:dmfa.id>>(160,0,160,1000,0,100000)","dfma.flag==2","colz");//dssd正面的能量 vs.探测器编号
+    - opt->Draw("@dfma.size()","dfma.flag==2","colz");//dssd正面的多重性，@dfma.size() 对应于hit数据结构的nhit
+    
    
 ### 用户分析代码：在上述数据的基础上，进一步编写用户分析程序。
    - 这一部分对应于GEBSort代码中的数据分析部分
