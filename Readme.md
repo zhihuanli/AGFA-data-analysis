@@ -37,7 +37,7 @@
     
    
 ### 用户分析代码：在上述数据的基础上，进一步编写用户分析程序。
-    - 这一部分对应于GEBSort代码中的数据分析部分
+   - 这一部分对应于GEBSort代码中的数据分析部分
 -  [DFMA_ana](https://github.com/zhihuanli/AGAFA-data-analysis/tree/master/dfma)
    
 ### 已知问题
