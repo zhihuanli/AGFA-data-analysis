@@ -13,7 +13,7 @@ void tree::Init()
   ifstream readtxt;
   
   int tmp1,tmp2;
-  readtxt.open("dssd.map");//ramaping
+  readtxt.open("dssd.map");//re-maping for y-side
   if(!readtxt.is_open())
     {
       std::cout<<"can't open file - dssd.map"<<std::endl;
@@ -92,7 +92,7 @@ void tree::Loop(TTree *opt_)
 	    vbts.push_back(ts);
 	  }
 	}
-	if(flag==4) {//fp
+	if(flag==4) {//fp 
 	  pa.e=ch;
 	  pa.id=id;
 	  pa.ts=ts;
@@ -114,7 +114,6 @@ void tree::Loop(TTree *opt_)
    sort(bvec.begin(),bvec.end(),SortDS);
 
    //remove noisy strips in dssd
-  
    for(auto it=xvec.begin();it!=xvec.end() ; ) {
      if(TMath::Abs(it->id-xvec[0].id)>1) 
        it=xvec.erase(it);
@@ -167,7 +166,7 @@ void tree::Loop(TTree *opt_)
    for(int i=0;i<xvec.size();i++)xesum+=xvec[i].e;
    yesum=0;
    for(int i=0;i<yvec.size();i++)yesum+=yvec[i].e;
-   desum=min(xesum,yesum);//check resolution
+   desum=min(xesum,yesum);//dssd energy
 
    mesum=0;
    for(int i=0;i<mvec.size();i++)mesum+=mvec[i].e;
