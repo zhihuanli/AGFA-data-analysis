@@ -5,6 +5,9 @@
 - run102 for Gammasphere
 - run105 for Sibox
 - run106 for Xarray
+
+<img src="fig/setup1.png" style="zoom:30%;" />
+<img src="fig/setup2.png" style="zoom:30%;" />
 ## Online代码分析流程
 
 1. GammaSphere, AGAFA, Xarray阵列独立记录各自的数据。
