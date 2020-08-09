@@ -38,7 +38,7 @@
    
 ### 用户分析代码：在上述数据的基础上，进一步编写用户分析程序。
    - 这一部分对应于GEBSort代码中的数据分析部分
-#### [DFMA 分析](https://github.com/zhihuanli/AGAFA-data-analysis/tree/master/dfma)
+#### [DFMA_ana](https://github.com/zhihuanli/AGAFA-data-analysis/tree/master/dfma)
    
 ### 已知问题
    - DSSD背面的mapping：相邻条的关联关系不正确。
