@@ -1,13 +1,6 @@
 
 # AGAFA 数据分析代码
-### Calibration run
-- run96 and run100 for DSSD calibration 
-- run102 for Gammasphere
-- run105 for Sibox
-- run106 for Xarray
 
-<img src="fig/setup1.png" style="zoom:20%;" />
-<img src="fig/setup2.png" style="zoom:20%;" />
 ## Online代码分析流程
 
 1. GammaSphere, AGAFA, Xarray阵列独立记录各自的数据。
@@ -56,5 +49,15 @@
    - DSSD背面的mapping：相邻条的关联关系不正确。
      - 修正后的背面[mapping](dssd.map)
    - GammaSphere的BGO反康：除了id=91的探头，大部分探测器的BGO反康没有正常工作。
+   
+### Calibration run
+- run96 and run100 for DSSD calibration 
+- run102 for Gammasphere
+- run105 for Sibox
+- run106 for Xarray
+
+### Setup
+<img src="fig/setup1.png" style="zoom:20%;" />
+<img src="fig/setup2.png" style="zoom:20%;" />
 
    
