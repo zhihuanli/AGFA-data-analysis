@@ -38,16 +38,10 @@
    
 ### 用户分析代码：在上述数据的基础上，进一步编写用户分析程序。
    - 这一部分对应于GEBSort代码中的数据分析部分
-#### [DFMA 分析](https://github.com/zhihuanli/dfma)
-   
-### 分析结果
-   - DSSD 正背面实际阈值 250keV
-   - DSSD 关联事件时间窗 +/- 20
-   - DSSD-SiBOX 关联事件时间窗： +/- 30
+#### [DFMA 分析](https://github.com/zhihuanli/AGAFA-data-analysis/tree/master/dfma)
    
 ### 已知问题
    - DSSD背面的mapping：相邻条的关联关系不正确。
-     - 修正后的背面[mapping](dssd.map)
    - GammaSphere的BGO反康：除了id=91的探头，大部分探测器的BGO反康没有正常工作。
    
 ### Calibration run
