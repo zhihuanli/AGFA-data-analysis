@@ -24,7 +24,7 @@
  - 用法: ./gebsort_local.sh runnumber
    - 在gebsort_local.sh中修改文件路径。
   
-  ### [gsort](https://github.com/zhihuanli/gsmfma372)：对探测器进行mapping和刻度。代码：Wu Hongyi
+  ### [gsort](https://github.com/wuhongyi/gsmfma372)：对探测器进行mapping和刻度。代码：Wu Hongyi
   - 进一步精简数据结构，只输出必要的参数
     - 探测器只保留 e,id,ts等参数
   - 运行方法 ./gsort run_number
