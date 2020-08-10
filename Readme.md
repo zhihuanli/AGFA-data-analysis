@@ -14,7 +14,7 @@
 
 ## 基于ROOT的offline代码
 
-### [simple_gebsort](https://github.com/zhihuanli/simple_gebsort)：将符合后的数据输出到ROOT文件。代码：Wu Hongyi， Li Jing
+### [simple_gebsort](https://github.com/wuhongyi/simple_gebsort)：将符合后的数据输出到ROOT文件。代码：Wu Hongyi， Li Jing
  - 在GEBSort程序的基础上，精简了每个探测器的数据结构，将其输出到ROOT文件，供下一级程序分析。
    - 为了简化代码，这一级只输出未进行刻度的原始数据。
  - 编译：root6下
