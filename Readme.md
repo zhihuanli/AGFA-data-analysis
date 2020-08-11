@@ -37,7 +37,7 @@
     
    
 ### 用户分析代码：在上述数据的基础上，进一步编写用户分析程序。
--  [analysis-1](https://github.com/zhihuanli/AGAFA-data-analysis/tree/master/dfma)
+-  [analysis-1](https://github.com/zhihuanli/AGAFA-data-analysis/tree/master/dfma) last modified：Aug. 10 
    - 重复数据去除，符合时间窗，x-y 相邻条相加 etc.
 ### 已知问题
    - DSSD背面的mapping：相邻条的关联关系不正确。
