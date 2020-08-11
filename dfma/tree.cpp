@@ -81,8 +81,6 @@ void tree::Loop(TTree *opt_,Long64_t entryStart,Long64_t entryStop)
       ipt->GetEntry(jentry);  
 
       //XA
-      double ge[5]={0,0,0,0,0};
-      ULong64_t gts[5]={0,0,0,0,0};
       xavec.clear();
       xaavec.clear();
 
@@ -167,6 +165,8 @@ void tree::Loop(TTree *opt_,Long64_t entryStart,Long64_t entryStop)
       Unique(gsvec);
     
    //clover-addback
+   double ge[5]={0,0,0,0,0};
+   ULong64_t gts[5]={0,0,0,0,0};
    for(int i=0;i<xavec.size();i++) {
      int idet=xavec[i].id/4;
      if(gts[idet]==0) {
