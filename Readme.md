@@ -53,4 +53,7 @@
 <img src="fig/setup1.png" style="zoom:20%;" />
 <img src="fig/setup2.png" style="zoom:20%;" />
 
-   
+|  $E_{\alpha} keV$    | 表头  |
+| :------------------: | ----  |
+| $T_{1/2} ms$        | 单元格 |
+| Origin              | 单元格 |   
