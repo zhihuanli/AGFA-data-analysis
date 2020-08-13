@@ -8,7 +8,7 @@
 
 2. GEBMerge：按照timestamp的先后顺序，将上述三种阵列数据存到同一个文件中。
  
-3. GEBSort：将符合时间窗(8μs)内的不同阵列数据放在一个事件内。 [代码解读](https://github.com/zhihuanli/AGAFA-data-analysis/blob/master/Program.html) by Huang Hao
+3. GEBSort：将符合时间窗(8μs)内的不同阵列数据放在一个事件内。 [代码解读](https://zhihuanli.github.io/AGAFA-data-analysis/Program.html) by Huang Hao
 
    - 对每种数据进行解码。
    - 进行数据分析，填充histogram等。
