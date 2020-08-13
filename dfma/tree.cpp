@@ -8,7 +8,7 @@ bool SortDS(dssd &a,dssd &b)
 
 bool Equal(dssd &a, dssd &b)
 {
-  return int(a.ts- b.ts)==0 && a.id==b.id;
+  return Long64_t(a.ts- b.ts)==0 && a.id==b.id;
 }
 
 void Unique(vector<dssd> &a) 
@@ -30,7 +30,7 @@ void TsCut(vector<dssd> &a, vector<dssd> &b, int dts1,int dts2)
 {
    if(b.size()>0) {   
      for(auto it=a.begin();it!=a.end() ; ) {
-       int dts=int(it->ts-b[0].ts);
+       int dts=Long64_t(it->ts-b[0].ts);
        if(dts<dts1 || dts>dts2) 
 	 it=a.erase(it);
        else
@@ -173,7 +173,7 @@ void tree::Loop(TTree *opt_,Long64_t entryStart,Long64_t entryStop)
        ge[idet]=xavec[i].e;
        gts[idet]=xavec[i].ts;
      }
-     else if(xavec[i].e>20 && TMath::Abs(int(gts[idet]-xavec[i].ts))<20) {
+     else if(xavec[i].e>20 && TMath::Abs(Long64_t(gts[idet]-xavec[i].ts))<20) {
        ge[idet]+=xavec[i].e;
        gts[idet]=TMath::Min(gts[idet],xavec[i].ts);
      }
