@@ -11,6 +11,7 @@
 3. GEBSort：将符合时间窗(8μs)内的不同阵列数据放在一个事件内。
    - 对每种数据进行解码。
    - 进行数据分析，填充histogram等。
+   -[代码解读](program.html) by Huang Hao
 
 ## 基于ROOT的offline代码
 
