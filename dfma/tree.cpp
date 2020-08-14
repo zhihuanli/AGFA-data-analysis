@@ -42,7 +42,9 @@ void TsCut(vector<dssd> &a, vector<dssd> &b, int dts1,int dts2)
 void tree::Init()
 {
   if(ipt==NULL) return;
-
+  br_dfma = 0;
+  br_xa = 0;
+  br_dgs = 0;
   ipt->SetBranchAddress("dfma",&br_dfma);
   ipt->SetBranchAddress("xa",&br_xa);
   ipt->SetBranchAddress("dgs",&br_dgs);
@@ -236,10 +238,6 @@ void tree::Loop(TTree *opt_,Long64_t entryStart,Long64_t entryStop)
 
 void tree::BranchOpt()
 {
-  br_dfma = 0;
-  br_xa = 0;
-  br_dgs = 0;
-
   opt->Branch("xesum",&xesum,"xesum/D");
   opt->Branch("yesum",&yesum,"yesum/D");
   opt->Branch("desum",&desum,"desum/D");
