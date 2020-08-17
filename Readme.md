@@ -38,9 +38,10 @@
     
    
 ### 用户分析代码：在上述数据的基础上，进一步编写用户分析程序。
--  [analysis-1](https://github.com/zhihuanli/AGAFA-data-analysis/tree/master/dfma) last modified：Aug. 10 
+-  [analysis](https://github.com/zhihuanli/AGAFA-data-analysis/tree/master/dfma) last modified：Aug. 10 
    - 去除重复数据，符合时间窗，x-y 相邻条相加 etc.
--  下一步可进行recoil和decay之间的位置-时间关联，重新组织事件结构，进行recoil-tagging，衰变数据分析。
+-  decay
+   - 进行recoil和decay之间的位置-时间关联，重新组织事件结构，进行recoil-tagging，衰变数据分析。
 ### 已知问题
    - DSSD背面的mapping：相邻条的关联关系不正确。
    - GammaSphere的BGO反康：除了id=91的探头，大部分探测器的BGO反康没有正常工作。
