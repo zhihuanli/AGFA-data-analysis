@@ -171,7 +171,7 @@ void tree::Loop(TTree *opt_,Long64_t entryStart,Long64_t entryStop)
    ULong64_t gts[5]={0,0,0,0,0};
    for(int i=0;i<xavec.size();i++) {
      int idet=xavec[i].id/4;
-     if(gts[idet]==0) {
+     if(gts[idet]==0 && xavec[i].e>20) {
        ge[idet]=xavec[i].e;
        gts[idet]=xavec[i].ts;
      }
