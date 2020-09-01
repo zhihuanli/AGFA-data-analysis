@@ -58,4 +58,5 @@
 ### Setup
 <img src="fig/setup1.png" style="zoom:20%;" />
 <img src="fig/setup2.png" style="zoom:20%;" />
+<img src="fig/alpha.png" style="zoom:20%;" />
 
