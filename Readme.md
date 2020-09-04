@@ -40,8 +40,7 @@
 ### 用户分析代码：在上述数据的基础上，进一步编写用户分析程序。
 -  [dssd](https://github.com/zhihuanli/AGAFA-data-analysis/tree/master/dfma) last modified：Oct. 4 
    - 加入基于tot的dssd能量cut。
--  decay
-   - 进行recoil和decay之间的位置-时间关联，重新组织事件结构，进行recoil-tagging，衰变数据分析。
+-  decay : 进行recoil和decay之间的位置-时间关联，重新组织事件结构，进行recoil-tagging，衰变数据分析。
    - [deacy](https://github.com/zhihuanli/AGAFA-data-analysis/tree/master/decay1) last modified Oct. 4
    
    - [Code by Huang Hao](https://github.com/IMP-HHuang/AGAFA-data-analysis)
