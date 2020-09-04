@@ -42,9 +42,7 @@ void TsCut(vector<dssd> &a, vector<dssd> &b, int dts1,int dts2)
 void tree::Init()
 {
   if(ipt==NULL) return;
-  br_dfma = 0;
-  br_xa = 0;
-  br_dgs = 0;
+
   ipt->SetBranchAddress("dfma",&br_dfma);
   ipt->SetBranchAddress("xa",&br_xa);
   ipt->SetBranchAddress("dgs",&br_dgs);
@@ -83,6 +81,8 @@ void tree::Loop(TTree *opt_,Long64_t entryStart,Long64_t entryStop)
       ipt->GetEntry(jentry);  
 
       //XA
+      double ge[5]={0,0,0,0,0};
+      ULong64_t gts[5]={0,0,0,0,0};
       xavec.clear();
       xaavec.clear();
 
@@ -115,6 +115,7 @@ void tree::Loop(TTree *opt_,Long64_t entryStart,Long64_t entryStop)
       bvec.clear();
       mvec.clear();
       pvec.clear();
+      dvec.clear();
 
       for(int i=0;i<br_dfma->size();i++) {
 
@@ -123,29 +124,34 @@ void tree::Loop(TTree *opt_,Long64_t entryStart,Long64_t entryStop)
         ULong64_t ts=(*br_dfma)[i].ts;
         Int_t id=(*br_dfma)[i].id;
         Int_t flag=(*br_dfma)[i].flag;
+	Int_t tot=(*br_dfma)[i].tot;
   
-	if(flag==1 && e>250) {//dssd-x
+	if(flag==1 && e>180 && tot>30) {//dssd-x//250
 	    x.e=e;
 	    x.id=id;
 	    x.ts=ts;
+	    x.tot=tot;
 	    xvec.push_back(x);
 	  }
-	if(flag==2 && e>250) {//dssd-y
+	if(flag==2 && e>180 && tot>30) {//dssd-y//250
 	    y.e=e;
 	    y.id=strip[id];
-	    y.ts=ts;;
+	    y.ts=ts;
+	    y.tot=tot;
 	    yvec.push_back(y);
 	  }
 	if(flag==3 && e>10){//si-box
 	  box.e=e;
 	  box.id=id;
 	  box.ts=ts;
+	  box.tot=tot;
 	  bvec.push_back(box);
 	}
 	if(flag==4 && ch>0) {//fp
 	  pa.e=ch;
 	  pa.id=id;
 	  pa.ts=ts;
+	  pa.tot=tot;
 	  pvec.push_back(pa);
 	}
 
@@ -153,7 +159,16 @@ void tree::Loop(TTree *opt_,Long64_t entryStart,Long64_t entryStop)
 	  mw.e=ch;
 	  mw.id=id;
 	  mw.ts=ts;
+	  mw.tot=tot;
 	  mvec.push_back(mw);
+	}
+
+	if(flag==6 && ch>0) {//mwpc
+	  de.e=ch;
+	  de.id=id;
+	  de.ts=ts;
+	  de.tot=tot;
+	  dvec.push_back(de);
 	}
       }
 
@@ -163,19 +178,19 @@ void tree::Loop(TTree *opt_,Long64_t entryStart,Long64_t entryStop)
       Unique(yvec);
       Unique(bvec);
       Unique(mvec);
+      Unique(pvec);
+      Unique(dvec);
       Unique(xavec);
       Unique(gsvec);
     
    //clover-addback
-   double ge[5]={0,0,0,0,0};
-   ULong64_t gts[5]={0,0,0,0,0};
    for(int i=0;i<xavec.size();i++) {
      int idet=xavec[i].id/4;
-     if(gts[idet]==0 && xavec[i].e>20) {
+     if(gts[idet]==0) {
        ge[idet]=xavec[i].e;
        gts[idet]=xavec[i].ts;
      }
-     else if(xavec[i].e>20 && TMath::Abs(Long64_t(gts[idet]-xavec[i].ts))<20) {
+     else if(xavec[i].e>20 && TMath::Abs(int(gts[idet]-xavec[i].ts))<20) {
        ge[idet]+=xavec[i].e;
        gts[idet]=TMath::Min(gts[idet],xavec[i].ts);
      }
@@ -203,13 +218,16 @@ void tree::Loop(TTree *opt_,Long64_t entryStart,Long64_t entryStop)
    TsCut(yvec,xvec,-20,20);
    TsCut(bvec,xvec,-30,30);
    TsCut(mvec,xvec,5,45);
+   TsCut(dvec,xvec,50,250);
    TsCut(gsvec,xvec,180,250);
    TsCut(xavec,xvec,210,300);  
    TsCut(xaavec,xvec,210,300);  
    xesum=0;
    for(int i=0;i<xvec.size();i++)xesum+=xvec[i].e;
+   if(xvec.size()>1) xesum -= 125;//1.0107*x.e-62.8
    yesum=0;
    for(int i=0;i<yvec.size();i++)yesum+=yvec[i].e;
+   if(yvec.size()>1) yesum -= 116;
    desum=min(xesum,yesum);//check resolution
 
    mesum=0;
@@ -238,6 +256,10 @@ void tree::Loop(TTree *opt_,Long64_t entryStart,Long64_t entryStop)
 
 void tree::BranchOpt()
 {
+  br_dfma = 0;
+  br_xa = 0;
+  br_dgs = 0;
+
   opt->Branch("xesum",&xesum,"xesum/D");
   opt->Branch("yesum",&yesum,"yesum/D");
   opt->Branch("desum",&desum,"desum/D");
@@ -245,8 +267,9 @@ void tree::BranchOpt()
   opt->Branch("x",&xvec);
   opt->Branch("y",&yvec);
   opt->Branch("box",&bvec);//sibox
-  //  opt->Branch("pa",&pvec);
+  // opt->Branch("pa",&pvec);
   opt->Branch("mw",&mvec);//mwpc
+  opt->Branch("de",&dvec);//de
   // opt->Branch("xa",&xavec);
   opt->Branch("xa",&xaavec);//clover-addback
   opt->Branch("gs",&gsvec);//gammasphere

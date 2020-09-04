@@ -12,6 +12,7 @@ typedef struct dssd
   Double_t e;
   Int_t id;
   ULong64_t ts;
+  Int_t tot;
 } dssd;
 
 typedef struct DFMAEVENT
@@ -22,7 +23,7 @@ typedef struct DFMAEVENT
   short int               id;// Si 0-159  box 0-55   FP 0/1   MWPC 0/1/2/3
   unsigned short int      tpe;
   unsigned short int      tid;
-
+  short int               tot;//number over threshold
   unsigned long long int  ts;//时间戳
   unsigned long long int  prets;
   int wheel;
@@ -76,10 +77,10 @@ class tree {
   TTree *ipt;
   TTree *opt;
 
-  dssd x,y,box,pa,mw;
+  dssd x,y,box,pa,mw,de;
   dssd xa,xaa,gs;
   double xesum,yesum,desum,mesum;
-  vector<dssd> xvec,yvec,bvec,pvec,mvec;
+  vector<dssd> xvec,yvec,bvec,pvec,mvec,dvec;
   vector<dssd> xavec,xaavec,gsvec;
 
   int strip[160];
