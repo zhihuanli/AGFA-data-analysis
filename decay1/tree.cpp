@@ -152,8 +152,8 @@ void tree::Loop1(TTree *opt_, Int_t run_)
     vge.clear();
     vgid.clear();
     vgts.clear();
-    vge.swap(ia->second.ge);
-    vgid.swap(ia->second.gid);
+    vge.assign(ia->second.ge.begin(),ia->second.ge.end());
+    vgid.assign(ia->second.gid.begin(),ia->second.gid.end());
     vgts.clear();
     for (int i = 0; i < vge.size(); i++)
     {
@@ -192,13 +192,14 @@ void tree::Loop1(TTree *opt_, Int_t run_)
       vce.clear();
       vcid.clear();
       vcts.clear();
-      vce.swap(ic->second.ge);
+      vce.assign(ic->second.ge.begin(),ic->second.ge.end());
+      vcid.assign(ic->second.gid.begin(),ic->second.gid.end());
       for (int i = 0; i < vce.size(); i++)
       {
         Long64_t tts = Long64_t(ic->second.gts[i] - ts) - 70 / sqrt(vce[i]) - 226;
         vcts.push_back(tts);
       }
-      vcid.swap(ic->second.gid);
+
       opt->Fill();
       idecay++;
     }
@@ -238,8 +239,8 @@ void tree::Loop2(TTree *opt_, Int_t run_)
     vge.clear();
     vgid.clear();
     vgts.clear();
-    vge.swap(ir->second.ge);
-    vgid.swap(ir->second.gid);
+    vge.assign(ir->second.ge.begin(),ir->second.ge.end());
+    vgid.assign(ir->second.gid.begin(),ir->second.gid.end());
     vgts.clear();
     for (int i = 0; i < vge.size(); i++)
     {
@@ -289,13 +290,13 @@ void tree::Loop2(TTree *opt_, Int_t run_)
       vce.clear();
       vcid.clear();
       vcts.clear();
-      vce.swap(id->second.ge);
+      vce.assign(id->second.ge.begin(),id->second.ge.end());
       for (int i = 0; i < vce.size(); i++)
       {
         Long64_t tts = Long64_t(id->second.gts[i] - ts) - 70 / sqrt(vce[i]) - 226;
         vcts.push_back(tts);
       }
-      vcid.swap(id->second.gid);
+      vcid.assign(id->second.gid.begin(),id->second.gid.end());
       opt->Fill();
       idecay++;
       id++;
