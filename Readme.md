@@ -1,9 +1,9 @@
 
-# AGAFA 数据分析代码
+# AGFA 数据分析代码
 
 ## Online代码分析流程
 
-1. GammaSphere, AGAFA, Xarray阵列独立记录各自的数据。
+1. GammaSphere, AGFA, Xarray阵列独立记录各自的数据。
    - 每个获取的具体Trigger方式未知。但从数据结构看，GammaSphere和XA的外部触发可能是由DSSD提供的。每个获取记录外部触发后8μs内各通道的自触发数据。 
 
 2. GEBMerge：按照timestamp的先后顺序，将上述三种阵列数据存到同一个文件中。
